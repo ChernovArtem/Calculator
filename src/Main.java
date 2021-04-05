@@ -2,12 +2,13 @@ import action.Console;
 import action.Validation;
 import action.Parsing;
 import action.Calculation;
+import exception.DivideByZeroException;
 import exception.WrongMathExpressionException;
 
 import java.util.List;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         final Console console = new Console();
 
@@ -25,7 +26,7 @@ public class Main {
             Number result = calculation.calculate(list);
 
             console.write("= " + result);
-        } catch (WrongMathExpressionException ex) {
+        } catch (WrongMathExpressionException | DivideByZeroException ex) {
             console.write(ex.getMessage());
         }
     }

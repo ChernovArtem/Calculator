@@ -1,5 +1,7 @@
 package action;
 
+import exception.DivideByZeroException;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
@@ -64,6 +66,9 @@ public class Calculation extends Operators {
                 number *= number2;
                 break;
             case "/":
+                if (number2 == 0) {
+                    throw new DivideByZeroException("Divide is zero. You can't divide by it!");
+                }
                 number /= number2;
                 break;
         }
